@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartstudy.controller.SyllabusController" spacing="14" styleClass="content">
+    <VBox spacing="3">
+        <Label text="Syllabus Upload &amp; Extraction" styleClass="page-title"/>
+        <Label text="SmartStudy detects likely assessments. You remain in control: edit, discard or confirm every item." styleClass="page-subtitle"/>
+    </VBox>
+    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="panel">
+        <Label text="Course:"/>
+        <ComboBox fx:id="courseBox" prefWidth="330"/>
+        <Button text="Choose PDF or DOCX" onAction="#upload" styleClass="primary-button"/>
+        <Label fx:id="fileLabel" text="No file selected" styleClass="file-label"/>
+    </HBox>
+    <TableView fx:id="itemTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="titleCol" text="Extracted Item" prefWidth="430"/>
+            <TableColumn fx:id="typeCol" text="Type" prefWidth="130"/>
+            <TableColumn fx:id="dueCol" text="Due Date" prefWidth="180"/>
+            <TableColumn fx:id="weightCol" text="Weight" prefWidth="110"/>
+        </columns>
+    </TableView>
+    <HBox spacing="9" alignment="CENTER_LEFT">
+        <Button text="Edit Selected" onAction="#editSelected"/>
+        <Button text="Discard Incorrect Item" onAction="#discardSelected" styleClass="danger-outline-button"/>
+        <Button text="Confirm Selected" onAction="#confirmSelected" styleClass="primary-button"/>
+        <Button text="Confirm All Valid" onAction="#confirmAllValid" styleClass="success-button"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+    <Label fx:id="statusLabel" styleClass="status-text" wrapText="true"/>
+</VBox>

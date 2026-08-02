@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartstudy.controller.ScheduleController" spacing="14" styleClass="content">
+    <HBox alignment="CENTER_LEFT">
+        <VBox spacing="3">
+            <Label text="Weekly Study Schedule" styleClass="page-title"/>
+            <Label text="Only future sessions are shown. Completed tasks are automatically removed." styleClass="page-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Regenerate Plan" onAction="#regenerate" styleClass="primary-button"/>
+    </HBox>
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="taskCol" text="Task" prefWidth="360"/>
+            <TableColumn fx:id="startCol" text="Start" prefWidth="250"/>
+            <TableColumn fx:id="endCol" text="End" prefWidth="110"/>
+            <TableColumn fx:id="durationCol" text="Duration" prefWidth="110"/>
+        </columns>
+    </TableView>
+    <Label fx:id="status" styleClass="status-text" wrapText="true"/>
+</VBox>

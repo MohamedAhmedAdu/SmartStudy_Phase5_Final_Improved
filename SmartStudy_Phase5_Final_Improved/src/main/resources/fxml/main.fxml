@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartstudy.controller.MainController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="brand-bar">
+            <VBox spacing="1">
+                <Label text="SmartStudy" styleClass="brand-title"/>
+                <Label text="Intelligent Academic Planning System" styleClass="brand-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="userLabel" styleClass="user-badge"/>
+            <Button text="Log out" onAction="#logout" styleClass="top-logout-button"/>
+        </HBox>
+    </top>
+    <left>
+        <VBox spacing="7" styleClass="sidebar">
+            <Label text="NAVIGATION" styleClass="sidebar-heading"/>
+            <Button fx:id="dashboardButton" text="Dashboard" onAction="#dashboard" maxWidth="Infinity"/>
+            <Button fx:id="coursesButton" text="Courses &amp; Tasks" onAction="#courses" maxWidth="Infinity"/>
+            <Button fx:id="syllabusButton" text="Syllabus Upload" onAction="#syllabus" maxWidth="Infinity"/>
+            <Button fx:id="scheduleButton" text="Study Schedule" onAction="#schedule" maxWidth="Infinity"/>
+            <Button fx:id="profileButton" text="Profile &amp; Settings" onAction="#profile" maxWidth="Infinity"/>
+            <Button fx:id="adminButton" text="Administrator Console" onAction="#admin" maxWidth="Infinity"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="SmartStudy Phase 5" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+</BorderPane>

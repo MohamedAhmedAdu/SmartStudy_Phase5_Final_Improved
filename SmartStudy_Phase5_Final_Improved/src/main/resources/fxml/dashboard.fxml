@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartstudy.controller.DashboardController" spacing="16" styleClass="content">
+    <HBox alignment="CENTER_LEFT">
+        <VBox spacing="3">
+            <Label text="Dashboard" styleClass="page-title"/>
+            <Label text="A live summary of your courses, workload and reminders." styleClass="page-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Refresh" onAction="#refresh"/>
+    </HBox>
+    <HBox spacing="12">
+        <VBox styleClass="metric-card" HBox.hgrow="ALWAYS"><Label text="Courses" styleClass="metric-label"/><Label fx:id="courseCount" styleClass="metric-value"/></VBox>
+        <VBox styleClass="metric-card" HBox.hgrow="ALWAYS"><Label text="Scheduled This Week" styleClass="metric-label"/><Label fx:id="studyHours" styleClass="metric-value"/></VBox>
+        <VBox styleClass="metric-card" HBox.hgrow="ALWAYS"><Label text="Completed Tasks" styleClass="metric-label"/><Label fx:id="completedCount" styleClass="metric-value"/></VBox>
+        <VBox styleClass="metric-card" HBox.hgrow="ALWAYS"><Label text="Overall Progress" styleClass="metric-label"/><Label fx:id="progressLabel" styleClass="metric-value"/></VBox>
+    </HBox>
+    <SplitPane dividerPositions="0.58" VBox.vgrow="ALWAYS">
+        <VBox spacing="8" styleClass="panel">
+            <Label text="Upcoming Tasks" styleClass="section-title"/>
+            <TableView fx:id="taskTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="titleCol" text="Task" prefWidth="260"/>
+                    <TableColumn fx:id="dueCol" text="Due" prefWidth="180"/>
+                    <TableColumn fx:id="statusCol" text="Status" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <VBox spacing="8" styleClass="panel">
+            <Label text="Upcoming Reminders" styleClass="section-title"/>
+            <ListView fx:id="reminders" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </SplitPane>
+    <Label fx:id="dashboardStatus" styleClass="status-text"/>
+</VBox>

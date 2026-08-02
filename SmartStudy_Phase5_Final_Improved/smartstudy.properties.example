@@ -1,0 +1,7 @@
+# Copy this file to smartstudy.properties and enter your local MySQL password.
+# A root-level smartstudy.properties file overrides src/main/resources/application.properties.
+db.url=jdbc:mysql://localhost:3306/smartstudy?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+db.user=root
+db.password=YOUR_MYSQL_PASSWORD
+syllabus.storage=data/syllabi
+session.timeout.minutes=15

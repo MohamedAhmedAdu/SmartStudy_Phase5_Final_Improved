@@ -1,0 +1,10 @@
+target/
+.idea/
+*.iml
+.nb-gradle/
+nbproject/private/
+data/syllabi/*
+!data/syllabi/.gitkeep
+
+# Local database credentials
+smartstudy.properties

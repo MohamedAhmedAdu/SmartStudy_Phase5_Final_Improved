@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartstudy.controller.LoginController" styleClass="auth-root">
+    <top>
+        <HBox alignment="CENTER_LEFT" styleClass="brand-bar">
+            <VBox spacing="1">
+                <Label text="SmartStudy" styleClass="brand-title"/>
+                <Label text="Intelligent Academic Planning System" styleClass="brand-subtitle"/>
+            </VBox>
+        </HBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="14" maxWidth="460" styleClass="card">
+            <Label text="Welcome Back" styleClass="page-title"/>
+            <Label text="Sign in to manage your academic plan." styleClass="page-subtitle"/>
+            <TextField fx:id="emailField" promptText="University email" maxWidth="360"/>
+            <PasswordField fx:id="passwordField" promptText="Password" maxWidth="360"/>
+            <Button text="Log In" onAction="#login" styleClass="primary-button" maxWidth="360" defaultButton="true"/>
+            <Button text="Create Student Account" onAction="#register" maxWidth="360"/>
+            <Label fx:id="statusLabel" styleClass="error-text" wrapText="true" maxWidth="360"/>
+        </VBox>
+    </center>
+</BorderPane>

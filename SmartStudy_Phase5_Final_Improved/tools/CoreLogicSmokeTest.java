@@ -1,0 +1,4 @@
+import com.smartstudy.model.*; import com.smartstudy.service.ScheduleGenerator; import com.smartstudy.util.Validation; import java.time.*; import java.util.*;
+public class CoreLogicSmokeTest {
+ public static void main(String[] args){Validation.requireEmail("student@adu.ac.ae");Validation.requirePassword("Strong123");var t1=new AcademicTask(1,"Final Exam",LocalDateTime.now().plusDays(2),40,4,TaskStatus.PENDING,TaskType.EXAM,null,null,null,null,null,null,1);var t2=new AcademicTask(2,"Small Quiz",LocalDateTime.now().plusDays(10),5,1,TaskStatus.PENDING,TaskType.QUIZ,null,null,null,null,null,null,1);var r=new ScheduleGenerator().generate(List.of(t2,t1),8,LocalDate.now());if(r.sessions().isEmpty()||!"Final Exam".equals(r.sessions().getFirst().taskTitle()))throw new AssertionError("Priority scheduling failed");System.out.println("PASS: validation and schedule generator core smoke test");System.out.println("Generated sessions: "+r.sessions().size());}
+}

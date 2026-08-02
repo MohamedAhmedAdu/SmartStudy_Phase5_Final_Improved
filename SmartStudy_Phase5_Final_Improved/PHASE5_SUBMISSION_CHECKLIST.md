@@ -1,0 +1,21 @@
+# Phase 5 Submission Checklist
+
+- [ ] `database/setup.sql` runs without errors.
+- [ ] `mvn clean test` shows BUILD SUCCESS.
+- [ ] Student registration and login work.
+- [ ] Student name is cyan in the top bar.
+- [ ] Course and task CRUD work.
+- [ ] Weight and estimated-hours fields accept numbers only.
+- [ ] Task can be marked In Progress and Completed.
+- [ ] Syllabus parser rejects obvious policy sentences.
+- [ ] Incorrect extracted rows can be discarded.
+- [ ] Valid extracted rows can be confirmed as tasks.
+- [ ] Study sessions are never in the past.
+- [ ] Reminder messages show the session/deadline date and time.
+- [ ] Dashboard progress updates after task completion.
+- [ ] Top-right Logout works.
+- [ ] Administrator login works.
+- [ ] Administrator name is gold in the top bar.
+- [ ] Administrator can activate, deactivate and delete student accounts.
+- [ ] GitHub repository URL is inserted in the report.
+- [ ] Real application screenshots are added to the final report.

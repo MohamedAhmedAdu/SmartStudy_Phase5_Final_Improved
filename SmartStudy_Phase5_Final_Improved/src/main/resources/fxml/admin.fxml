@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartstudy.controller.AdminController" spacing="14" styleClass="content">
+    <HBox alignment="CENTER_LEFT">
+        <VBox spacing="3">
+            <Label text="Administrator Console" styleClass="page-title"/>
+            <Label text="Manage student account access without viewing or editing academic content." styleClass="page-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Refresh" onAction="#refresh"/>
+    </HBox>
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idCol" text="ID" prefWidth="70"/>
+            <TableColumn fx:id="nameCol" text="Student" prefWidth="260"/>
+            <TableColumn fx:id="emailCol" text="Email" prefWidth="330"/>
+            <TableColumn fx:id="hoursCol" text="Hours/Week" prefWidth="120"/>
+            <TableColumn fx:id="statusCol" text="Status" prefWidth="140"/>
+        </columns>
+    </TableView>
+    <HBox spacing="10">
+        <Button text="Activate" onAction="#activate" styleClass="success-button"/>
+        <Button text="Deactivate" onAction="#deactivate" styleClass="warning-button"/>
+        <Button text="Delete Account" onAction="#delete" styleClass="danger-button"/>
+    </HBox>
+    <Label fx:id="statusLabel" styleClass="status-text"/>
+</VBox>

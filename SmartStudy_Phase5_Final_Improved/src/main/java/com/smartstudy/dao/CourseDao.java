@@ -1,0 +1,10 @@
+package com.smartstudy.dao;
+import com.smartstudy.config.Database; import com.smartstudy.model.Course;
+import java.sql.*; import java.util.*;
+public final class CourseDao {
+    private Course map(ResultSet r)throws SQLException{return new Course(r.getInt("course_id"),r.getString("course_code"),r.getString("course_name"),r.getString("instructor"),r.getString("semester"),r.getInt("student_id"));}
+    public List<Course> findByStudent(int sid)throws SQLException{List<Course>o=new ArrayList<>();try(Connection c=Database.getConnection();PreparedStatement p=c.prepareStatement("SELECT * FROM courses WHERE student_id=? ORDER BY course_code")){p.setInt(1,sid);try(ResultSet r=p.executeQuery()){while(r.next())o.add(map(r));}}return o;}
+    public Course insert(Course x)throws SQLException{String q="INSERT INTO courses(course_code,course_name,instructor,semester,student_id) VALUES(?,?,?,?,?)";try(Connection c=Database.getConnection();PreparedStatement p=c.prepareStatement(q,Statement.RETURN_GENERATED_KEYS)){p.setString(1,x.courseCode());p.setString(2,x.courseName());p.setString(3,x.instructor());p.setString(4,x.semester());p.setInt(5,x.studentId());p.executeUpdate();try(ResultSet k=p.getGeneratedKeys()){k.next();return new Course(k.getInt(1),x.courseCode(),x.courseName(),x.instructor(),x.semester(),x.studentId());}}}
+    public void update(Course x)throws SQLException{try(Connection c=Database.getConnection();PreparedStatement p=c.prepareStatement("UPDATE courses SET course_code=?,course_name=?,instructor=?,semester=? WHERE course_id=? AND student_id=?")){p.setString(1,x.courseCode());p.setString(2,x.courseName());p.setString(3,x.instructor());p.setString(4,x.semester());p.setInt(5,x.courseId());p.setInt(6,x.studentId());p.executeUpdate();}}
+    public void delete(int id,int sid)throws SQLException{try(Connection c=Database.getConnection();PreparedStatement p=c.prepareStatement("DELETE FROM courses WHERE course_id=? AND student_id=?")){p.setInt(1,id);p.setInt(2,sid);p.executeUpdate();}}
+}
